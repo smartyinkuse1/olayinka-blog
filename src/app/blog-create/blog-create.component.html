@@ -1,0 +1,112 @@
+<app-header></app-header>
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="page-header-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Admin Create Blog</li>
+                </ul>
+                <h1>Admin Create Blog</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <form [formGroup]="form" (submit)="onSubmitBlog()">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputHeadline">Headline</label>
+                <input type="text" [ngClass]="{'is-invalid': f.headline.errors }" formControlName="headline" class="form-control" id="inputHeadline">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputTitle">Title</label>
+                <input type="text" formControlName="title" class="form-control" id="inputTitle">
+              </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="inputFirstParagraph">First Paragraph</label>
+                  <textarea type="text" formControlName="paragraph1" class="form-control" id="inputFirstParagraph"></textarea>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputSecondParagraph">Second Paragraph</label>
+                  <textarea type="text" formControlName="paragraph2" class="form-control" id="inputSecondParagraph"></textarea>
+                </div>
+              </div>
+            <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputQuotes">Quotes</label>
+                <input type="text" formControlName="quotes" class="form-control" id="inputQuotes">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputTextEmphasis">Text Emphasis</label>
+                <input type="text" formControlName="textEmphasis" class="form-control" id="inputTextEmphasis">
+            </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFile">Main Image</label>
+                    <input type="file" (change)="uploadImage($event)" class="form-control" id="inputFile">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputMainImageCaption">Main Image Caption</label>
+                    <input type="text" formControlName="mainImageCaption" class="form-control" id="inputMainImageCaption">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputOtherFile">Other Image</label>
+                    <input type="file" class="form-control" id="inputOtherFile">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputOtherImagesCaption">Other Images Caption</label>
+                    <input type="text" formControlName="otherImageCaption" class="form-control" id="inputOtherImagesCaption">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="inputState">Category</label>
+                        <select formControlName="category" id="inputState" class="form-control">
+                            <option selected disabled>Choose...</option>
+                            <option>Music</option>
+                            <option>Tech</option>
+                            <option>Fashion</option>
+                        </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                  <div class="form-check">
+                    <input class="form-check-input" formControlName="popular" type="checkbox" id="popularCheck">
+                    <label class="form-check-label" for="popularCheck">
+                      Popular Post
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="feature" type="checkbox" id="featureCheck">
+                      <label class="form-check-label" for="featureCheck">
+                        Featured Post?
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group col-md-4">
+                    <div class="form-check">
+                      <input class="form-check-input" formControlName="confirm" type="checkbox" id="gridCheck">
+                      <label class="form-check-label" for="gridCheck">
+                        Confirm Blog Post?
+                      </label>
+                    </div>
+                  </div>
+            </div>
+            <button type="submit" [disabled]="form.invalid" class="btn btn-primary">Create Post</button>
+          </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

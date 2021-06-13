@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "olayinka-blog": {
+      "hosting": {
+        "olayinka-blog": [
+          "olayinka-blog"
+        ]
+      }
+    }
+  }
+}
