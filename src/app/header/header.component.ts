@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BlogService } from '../services/blog.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  categories;
+  constructor(private blogService: BlogService) { }
 
   ngOnInit(): void {
+    this.blogService.getAllCategories().subscribe(res=> {
+      console.log(res.categories);
+      this.categories = res.categories
+    })
   }
 
 }

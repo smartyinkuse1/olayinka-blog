@@ -73,8 +73,15 @@ export class BlogCreateComponent implements OnInit {
   }
 
   onSubmitBlog() {
-    console.log(this.form.value,  "The values in the Component");
-    this.blogService.addBlog(this.form.value).then(res => {
+    // console.log(this.form.value,  "The values in the Component");
+    let blogObj = {
+      ...this.form.value,
+      mainImage: this.mainImage
+    }
+    console.log(blogObj);
+    
+
+    this.blogService.addBlog(blogObj).then(res => {
       console.log(res)
       this.form.reset()
       this.router.navigateByUrl("/")
