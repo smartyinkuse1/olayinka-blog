@@ -72,9 +72,7 @@
                     <label for="inputState">Category</label>
                         <select formControlName="category" id="inputState" class="form-control">
                             <option selected disabled>Choose...</option>
-                            <option>Music</option>
-                            <option>Tech</option>
-                            <option>Fashion</option>
+                            <option *ngFor="let category of categories" [value]="category?.name" >{{category?.name}}</option>
                         </select>
                 </div>
             </div>

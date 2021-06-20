@@ -82,4 +82,32 @@ export class BlogService {
       })
     )
   }
+
+  getBlogsByCategory(category: any) {
+    return this.firestore.collection('blogs', ref => ref.where("category", "==", category)).snapshotChanges().pipe(
+      map((blogData: any)=> {
+        return {
+          blogs: blogData.map(blog => {
+            return {
+                id: blog.payload.doc.id,
+                category: blog.payload.doc.data().category,
+                confirm: blog.payload.doc.data().confirm,
+                date: blog.payload.doc.data().date,
+                feature: blog.payload.doc.data().feature,
+                headline: blog.payload.doc.data().headline,
+                mainImage: blog.payload.doc.data().mainImage,
+                mainImageCaption: blog.payload.doc.data().mainImageCaption,
+                otherImageCaption: blog.payload.doc.data().otherImageCaption,
+                paragraph1: blog.payload.doc.data().paragraph1,
+                paragraph2: blog.payload.doc.data().paragraph2,
+                popular: blog.payload.doc.data().popular,
+                quotes: blog.payload.doc.data().quotes,
+                textEmphasis: blog.payload.doc.data().textEmphasis,
+                title: blog.payload.doc.data().title,
+            }
+          })
+        }
+      })
+    )
+  }
 }

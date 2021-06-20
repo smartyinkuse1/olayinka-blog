@@ -13,7 +13,7 @@
 
                 <!-- nav -->
                 <ul class="nav-menu nav navbar-nav">
-                    <li *ngFor="let category of categories" [title]="category?.description" class="{{category?.cla}}"><a href="category.html">{{category?.name}}</a></li>
+                    <li *ngFor="let category of categories" [title]="category?.description" class="{{category?.cla}}"><a routerLink="/category/{{category?.name}}">{{category?.name}}</a></li>
                 </ul>
                 <!-- /nav -->
 

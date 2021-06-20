@@ -19,5 +19,14 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  check(category, value) {
+    
+    if (category === value) {
+      return true
+    }else {
+      return false
+    }
+  }
+
 
 }

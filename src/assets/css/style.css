@@ -549,10 +549,11 @@ RESPONSIVE
      background-color: #ff8700;
 }
  .post-meta .post-category.cat-3 {
-     background-color: #8d00ff;
+     background-color: #0078ff;
 }
  .post-meta .post-category.cat-4 {
-     background-color: #0078ff;
+    background-color: #8d00ff;
+
 }
  .post-meta .post-date {
      font-size: 13px;

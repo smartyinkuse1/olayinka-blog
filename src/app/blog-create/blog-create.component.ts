@@ -14,6 +14,7 @@ export class BlogCreateComponent implements OnInit {
   form: FormGroup;  
   mainImage!: any;
   downloadUrl!: any;
+  categories!: any;
   constructor(
     private fb: FormBuilder,
     private blogService: BlogService,
@@ -23,6 +24,11 @@ export class BlogCreateComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.blogService.getAllCategories().subscribe(res=> {
+      this.categories = res.categories
+      console.log(this.categories, "Categories")
+      
+    })
     this.form = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(6)] ],
       headline: ['', [Validators.required, Validators.minLength(6)] ],
