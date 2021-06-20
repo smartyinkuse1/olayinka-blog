@@ -8,7 +8,8 @@ import { BlogService } from '../services/blog.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  categoryName
+  categoryName;
+  blogs;
   constructor(public route: ActivatedRoute, private blogService: BlogService) { }
 
   ngOnInit(): void {
@@ -18,9 +19,18 @@ export class CategoryComponent implements OnInit {
       }
       this.blogService.getBlogsByCategory(this.categoryName).subscribe(res=> {
         console.log(res.blogs);
-        
+        this.blogs = res.blogs
       })
     })
+  }
+
+  check(category, value) {
+    
+    if (category === value) {
+      return true
+    }else {
+      return false
+    }
   }
 
 }

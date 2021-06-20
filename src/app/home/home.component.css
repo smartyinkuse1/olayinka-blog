@@ -1,3 +1,11 @@
 .some-colour {
     background-color: aliceblue;
 }
+
+@media(min-width: 992px) {
+    .post-body h3 {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}
